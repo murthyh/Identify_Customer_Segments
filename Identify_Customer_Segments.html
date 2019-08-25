@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Identify_Customer_Segments-Copy1</title>
+<title>Identify_Customer_Segments</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13056,25 +13056,6 @@ ul.typeahead-list  > li > a.pull-right {
 .ansi-bold { font-weight: bold; }
 
     </style>
-<style type="text/css">
-    body[data-notebook-name] > #header #header-container:not(.show-panel), /* body has data-notebook-name attribute when 
-a notebook is open. this rule won't be applied when the notebook is not open (in 404 view for example) */
-body[data-notebook-name] #menubar-container #maintoolbar:not(.show-panel),
-body[data-notebook-name] #menubar-container ul.navbar-nav:not(.show-panel) {
-  display: none;
-}
-
-#menubar.only-panel #menus.navbar-default {
-    background: #fff;
-    border-color: #fff;
-}
-
-.toolbar.with-statusbar{
-    margin-top: 3px;
-    margin-bottom: 0;
-}
-
-    </style>
 
 
 <style type="text/css">
@@ -13108,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13145,7 +13126,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import libraries here; add more as necessary</span>
@@ -13185,7 +13166,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the general demographics data.</span>
@@ -13201,13 +13182,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the structure of the data after it&#39;s loaded (e.g. print the number of</span>
 <span class="c1"># rows and columns, print the first few rows).</span>
-
-<span class="n">azdias</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">azdias</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13220,56 +13200,23 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(891221, 85)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -13434,40 +13381,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_info</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(85, 4)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_info</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13483,23 +13397,23 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -13559,6 +13473,93 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_info</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>attribute</th>
+      <th>information_level</th>
+      <th>type</th>
+      <th>missing_or_unknown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>85</td>
+      <td>85</td>
+      <td>85</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>85</td>
+      <td>9</td>
+      <td>5</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>FINANZTYP</td>
+      <td>person</td>
+      <td>ordinal</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>1</td>
+      <td>43</td>
+      <td>49</td>
+      <td>26</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13573,7 +13574,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of naturally missing values is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">azdias</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
@@ -13604,11 +13605,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Identify missing or unknown data values and convert them to NaNs.</span>
-<span class="k">for</span> <span class="n">indx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feat_info</span><span class="p">)):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">indx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feat_info</span><span class="p">)):</span>
     <span class="n">missing_or_unknown</span> <span class="o">=</span> <span class="n">feat_info</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indx</span><span class="p">][</span><span class="s1">&#39;missing_or_unknown&#39;</span><span class="p">]</span>
     <span class="n">missing_or_unknown</span> <span class="o">=</span> <span class="n">missing_or_unknown</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)</span>
     <span class="n">missing_or_unknown</span> <span class="o">=</span> <span class="n">missing_or_unknown</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">)</span>
@@ -13625,7 +13625,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of missing values after conversion is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">azdias</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
@@ -13665,7 +13665,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Perform an assessment of how much missing data there is in each column of the</span>
@@ -13680,11 +13680,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate patterns in the amount of missing data in each column.</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">percent_missing_per_column</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Columns&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Percentage of Missing Values&#39;</span><span class="p">)</span>
@@ -13720,7 +13719,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove the outlier columns from the dataset. (You&#39;ll perform other data</span>
@@ -13735,7 +13734,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">drop_coloumns</span> <span class="o">=</span> <span class="n">percent_missing_per_column_20</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -13767,7 +13766,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias</span> <span class="o">=</span> <span class="n">azdias</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">drop_coloumns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -13780,7 +13779,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13796,23 +13795,23 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -13978,7 +13977,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Discussion-1.1.2:-Assess-Missing-Data-in-Each-Column">Discussion 1.1.2: Assess Missing Data in Each Column<a class="anchor-link" href="#Discussion-1.1.2:-Assess-Missing-Data-in-Each-Column">&#182;</a></h4><p>Most columns have less than 20% missing data. Therefore, columns that have more than 20% missing data are considered as outlier columns, and are dropped: 'AGER_TYP', 'GEBURTSJAHR', 'TITEL_KZ', 'ALTER_HH', 'KK_KUNDENTYP', 'KBA05_BAUMAX'.</p>
+<h4 id="Discussion-1.1.2:-Assess-Missing-Data-in-Each-Column">Discussion 1.1.2: Assess Missing Data in Each Column<a class="anchor-link" href="#Discussion-1.1.2:-Assess-Missing-Data-in-Each-Column">&#182;</a></h4><p>Columns that have more than 20% missing data are considered as outlier columns, and are dropped: 'AGER_TYP', 'GEBURTSJAHR', 'TITEL_KZ', 'ALTER_HH', 'KK_KUNDENTYP', 'KBA05_BAUMAX'.</p>
 
 </div>
 </div>
@@ -13999,7 +13998,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How much data is missing in each row of the dataset?</span>
@@ -14039,7 +14038,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write code to divide the data into two subsets based on the number of missing</span>
@@ -14055,7 +14054,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compare the distribution of values for at least five columns where there are</span>
@@ -14071,7 +14070,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">figure</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">compare_columns</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
@@ -14113,9 +14112,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Discussion-1.1.3:-Assess-Missing-Data-in-Each-Row">Discussion 1.1.3: Assess Missing Data in Each Row<a class="anchor-link" href="#Discussion-1.1.3:-Assess-Missing-Data-in-Each-Row">&#182;</a></h4><p>(Double-click this cell and replace this text with your own text, reporting your observations regarding missing data in rows. Are the data with lots of missing values are qualitatively different from data with few or no missing values?)</p>
-<p>From the charts above, the distributions of values between the two datasets are similar for Gender feature, but are quite different for some features such as Financial features.</p>
-<p>his means that there is a pattern in the way that data is missing, and thus taking out rows with null values would introduce bias.</p>
+<h4 id="Discussion-1.1.3:-Assess-Missing-Data-in-Each-Row">Discussion 1.1.3: Assess Missing Data in Each Row<a class="anchor-link" href="#Discussion-1.1.3:-Assess-Missing-Data-in-Each-Row">&#182;</a></h4><p>From the charts above, the distributions of values between the two datasets are similar for Gender feature, but are quite different for some features such as Financial features.</p>
 
 </div>
 </div>
@@ -14137,7 +14134,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How many features are there of each data type?</span>
@@ -14189,13 +14186,12 @@ There are 6 numeric features.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Assess categorical variables: which are binary, which are multi-level, and</span>
 <span class="c1"># which one needs to be re-encoded?</span>
 <span class="n">cat_features</span> <span class="o">=</span> <span class="n">feat_info_clean</span><span class="p">[</span><span class="n">feat_info_clean</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;categorical&quot;</span><span class="p">][</span><span class="s2">&quot;attribute&quot;</span><span class="p">]</span>
-<span class="c1">#cat_features = feat_info.loc[feat_info[&#39;type&#39;] == &#39;categorical&#39;, &#39;attribute&#39;].values</span>
 </pre></div>
 
     </div>
@@ -14205,7 +14201,7 @@ There are 6 numeric features.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">binary_feature</span> <span class="o">=</span> <span class="p">[]</span>
@@ -14224,7 +14220,7 @@ There are 6 numeric features.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Binary features are: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">binary_feature</span><span class="p">))</span>
@@ -14257,7 +14253,7 @@ Multi-level features are: [&#39;CJT_GESAMTTYP&#39;, &#39;FINANZTYP&#39;, &#39;GF
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">binary_feature</span><span class="p">:</span>
@@ -14293,7 +14289,7 @@ Unique values for OST_WEST_KZ are [&#39;W&#39; &#39;O&#39;]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode categorical variable(s) to be kept in the analysis.</span>
@@ -14308,7 +14304,7 @@ Unique values for OST_WEST_KZ are [&#39;W&#39; &#39;O&#39;]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop multi-level features</span>
@@ -14324,10 +14320,11 @@ Unique values for OST_WEST_KZ are [&#39;W&#39; &#39;O&#39;]
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Discussion-1.2.1:-Re-Encode-Categorical-Features">Discussion 1.2.1: Re-Encode Categorical Features<a class="anchor-link" href="#Discussion-1.2.1:-Re-Encode-Categorical-Features">&#182;</a></h4><p>(Double-click this cell and replace this text with your own text, reporting your findings and decisions regarding categorical features. Which ones did you keep, which did you drop, and what engineering steps did you perform?)</p>
-<p>Re-encoded the values in 'OST_WEST_KZ' as numbers to keep it in analysis.
-Kept all binary features:'ANREDE_KZ', 'GREEN_AVANTGARDE', 'SOHO_KZ', 'VERS_TYP', 'OST_WEST_KZ'.
-Dropped all multi-level features.</p>
+<h4 id="Discussion-1.2.1:-Re-Encode-Categorical-Features">Discussion 1.2.1: Re-Encode Categorical Features<a class="anchor-link" href="#Discussion-1.2.1:-Re-Encode-Categorical-Features">&#182;</a></h4><ol>
+<li>Re-encoded the values in 'OST_WEST_KZ' as numbers to keep it in analysis. </li>
+<li>Kept all binary features:'ANREDE_KZ', 'GREEN_AVANTGARDE', 'SOHO_KZ', 'VERS_TYP', 'OST_WEST_KZ'.  </li>
+<li>Dropped all multi-level features.</li>
+</ol>
 
 </div>
 </div>
@@ -14348,7 +14345,7 @@ Dropped all multi-level features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate &quot;PRAEGENDE_JUGENDJAHRE&quot; and engineer two new variables.</span>
@@ -14363,7 +14360,7 @@ Dropped all multi-level features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">decade_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span><span class="mi">6</span><span class="p">}</span>
@@ -14377,7 +14374,7 @@ Dropped all multi-level features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_clean</span><span class="p">[</span><span class="s1">&#39;DECADE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">decade_dict</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -14391,7 +14388,7 @@ Dropped all multi-level features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate &quot;CAMEO_INTL_2015&quot; and engineer two new variables.</span>
@@ -14406,7 +14403,7 @@ Dropped all multi-level features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wealth_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;11&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;13&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;14&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;22&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;24&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;25&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
@@ -14425,7 +14422,7 @@ Dropped all multi-level features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_clean</span><span class="p">[</span><span class="s1">&#39;WEALTH&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">wealth_dict</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -14440,15 +14437,18 @@ Dropped all multi-level features.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Discussion-1.2.2:-Engineer-Mixed-Type-Features">Discussion 1.2.2: Engineer Mixed-Type Features<a class="anchor-link" href="#Discussion-1.2.2:-Engineer-Mixed-Type-Features">&#182;</a></h4><p>(Double-click this cell and replace this text with your own text, reporting your findings and decisions regarding mixed-value features. Which ones did you keep, which did you drop, and what engineering steps did you perform?)</p>
-<p>these two mixed-value features retained:</p>
-<p>PRAEGENDE_JUGENDJAHRE
-CAMEO_INTL_2015
-Below is what I did to engineer the above two mixed-value features:</p>
-<p>Created two new feature columns, and copied values from the initial mixed-value feature column
-Created two dictionaries to map intial feature values to new feature values
-Performed a replace operation using the dictionaries on the new feature columns
-Decided to drop the other four mixed-values features.</p>
+<h4 id="Discussion-1.2.2:-Engineer-Mixed-Type-Features">Discussion 1.2.2: Engineer Mixed-Type Features<a class="anchor-link" href="#Discussion-1.2.2:-Engineer-Mixed-Type-Features">&#182;</a></h4><p>I kept these two mixed-value features:</p>
+<ul>
+<li>PRAEGENDE_JUGENDJAHRE </li>
+<li>CAMEO_INTL_2015</li>
+</ul>
+<p>Below is what I did to engineer the above two mixed-value features:</p>
+<ol>
+<li>Created two new feature columns, and copied values from the initial mixed-value feature column</li>
+<li>Created two dictionaries to map intial feature values to new feature values</li>
+<li>Performed a replace operation using the dictionaries on the new feature columns</li>
+</ol>
+<p>I decided to drop the other four mixed-values features.</p>
 
 </div>
 </div>
@@ -14469,7 +14469,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If there are other re-engineering tasks you need to perform, make sure you</span>
@@ -14483,7 +14483,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do whatever you need to in order to ensure that the dataframe only contains</span>
@@ -14500,7 +14500,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_clean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14516,23 +14516,23 @@ Decided to drop the other four mixed-values features.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[41]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -14705,7 +14705,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14804,7 +14804,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If you&#39;ve not yet cleaned the dataset of all NaN values, then investigate and</span>
@@ -14820,7 +14820,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_clean_imputed</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">azdias_clean</span><span class="o">.</span><span class="n">columns</span>
@@ -14834,7 +14834,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply feature scaling to the general population demographics data.</span>
@@ -14849,7 +14849,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_clean_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">azdias_clean_scaled</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">azdias_clean_imputed</span><span class="p">))</span>
@@ -14862,7 +14862,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_clean_scaled</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14878,23 +14878,23 @@ Decided to drop the other four mixed-values features.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[47]:</div>
+    <div class="prompt output_prompt">Out[40]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -15060,8 +15060,8 @@ Decided to drop the other four mixed-values features.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Discussion-2.1:-Apply-Feature-Scaling">Discussion 2.1: Apply Feature Scaling<a class="anchor-link" href="#Discussion-2.1:-Apply-Feature-Scaling">&#182;</a></h3><p>(Double-click this cell and replace this text with your own text, reporting your decisions regarding feature scaling.)</p>
-<p>I replaced all missing values with the most frequent value in that column using the Imputer method. All features are scaled uding the StandardScaler.</p>
+<h3 id="Discussion-2.1:-Apply-Feature-Scaling">Discussion 2.1: Apply Feature Scaling<a class="anchor-link" href="#Discussion-2.1:-Apply-Feature-Scaling">&#182;</a></h3><p>Replaced all missing values with the most frequent value in that column using the Imputer method.
+All features are scaled uding the StandardScaler.</p>
 
 </div>
 </div>
@@ -15081,7 +15081,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply PCA to the data.</span>
@@ -15099,7 +15099,7 @@ Decided to drop the other four mixed-values features.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[48]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -15117,7 +15117,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate the variance accounted for by each principal component.</span>
@@ -15157,7 +15157,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -15196,7 +15196,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-apply PCA to the data while selecting for number of components to retain.</span>
@@ -15212,8 +15212,7 @@ Decided to drop the other four mixed-values features.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Discussion-2.2:-Perform-Dimensionality-Reduction">Discussion 2.2: Perform Dimensionality Reduction<a class="anchor-link" href="#Discussion-2.2:-Perform-Dimensionality-Reduction">&#182;</a></h3><p>(Double-click this cell and replace this text with your own text, reporting your findings and decisions regarding dimensionality reduction. How many principal components / transformed features are you retaining for the next step of the analysis?)</p>
-<p>Decided to retain 30 principal components, as it expalains more than 88% variances while reducing the number of features by more than 50%.</p>
+<h3 id="Discussion-2.2:-Perform-Dimensionality-Reduction">Discussion 2.2: Perform Dimensionality Reduction<a class="anchor-link" href="#Discussion-2.2:-Perform-Dimensionality-Reduction">&#182;</a></h3><p>I decided to retain 30 principal components, as it expalains more than 88% variances while reducing the number of features by more than 50%.</p>
 
 </div>
 </div>
@@ -15233,7 +15232,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the first principal component to corresponding feature names</span>
@@ -15253,7 +15252,7 @@ Decided to drop the other four mixed-values features.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pca_weight_0</span> <span class="o">=</span> <span class="n">pca_weights</span><span class="p">(</span><span class="n">pca_30</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -15318,7 +15317,7 @@ ONLINE_AFFINITAET       -0.033356
 MIN_GEBAEUDEJAHR        -0.051081
 WOHNDAUER_2008          -0.067494
 KBA13_ANZAHL_PKW        -0.076114
-ANZ_PERSONEN            -0.080257
+ANZ_PERSONEN            -0.080256
 SEMIO_LUST              -0.094487
 SEMIO_ERL               -0.095340
 GREEN_AVANTGARDE        -0.111461
@@ -15346,7 +15345,7 @@ Name: 0, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the second principal component to corresponding feature names</span>
@@ -15441,7 +15440,7 @@ Name: 1, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the third principal component to corresponding feature names</span>
@@ -15474,7 +15473,7 @@ FINANZ_VORSORGER         0.100528
 W_KEIT_KIND_HH           0.090749
 ALTERSKATEGORIE_GROB     0.084443
 SEMIO_REL                0.078693
-SEMIO_LUST               0.075136
+SEMIO_LUST               0.075135
 SEMIO_MAT                0.051723
 GREEN_AVANTGARDE         0.049770
 EWDICHTE                 0.046941
@@ -15491,7 +15490,7 @@ WEALTH                   0.024789
 VERS_TYP                 0.021824
 ANZ_HH_TITEL             0.014213
 OST_WEST_KZ              0.011511
-ANZ_TITEL                0.010495
+ANZ_TITEL                0.010494
 KBA05_ANTG3              0.006882
 PLZ8_HHZ                 0.006031
                            ...   
@@ -15537,10 +15536,12 @@ Name: 2, Length: 64, dtype: float64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Discussion-2.3:-Interpret-Principal-Components">Discussion 2.3: Interpret Principal Components<a class="anchor-link" href="#Discussion-2.3:-Interpret-Principal-Components">&#182;</a></h3><p>(Double-click this cell and replace this text with your own text, reporting your observations from detailed investigation of the first few principal components generated. Can we interpret positive and negative values from them in a meaningful way?)</p>
-<p>PLZ8_ANTG3 and PLZ8_ANTG4 have a positive correlation. The share of 10+ family homes and the share of 6-10 family homes for macro-cells tend to increase together.</p>
-<p>PLZ8_ANTG3 and WEALTH also have a positive correlation. It indicates that when the share of 6-10 family homes in a macro-cell increases, it tends to have more poor households.</p>
-<p>MOBI_REGIO and PLZ8_ANTG3 have a negative correlation. It means that when the share of 6-10 family homes in a macro-cell increases, it tends to have higher movements.</p>
+<h3 id="Discussion-2.3:-Interpret-Principal-Components">Discussion 2.3: Interpret Principal Components<a class="anchor-link" href="#Discussion-2.3:-Interpret-Principal-Components">&#182;</a></h3><p>From the first principal component, it can be seen that</p>
+<ul>
+<li>PLZ8_ANTG3 and PLZ8_ANTG4 have a positive correlation. The share of 10+ family homes and the share of 6-10 family homes for macro-cells tend to increase together.</li>
+<li>PLZ8_ANTG3 and WEALTH also have a positive correlation. It indicates that when the share of 6-10 family homes in a macro-cell increases, it tends to have more poor households.</li>
+<li>MOBI_REGIO and PLZ8_ANTG3 have a negative correlation. It means that when the share of 6-10 family homes in a macro-cell increases, it tends to have higher movements.</li>
+</ul>
 
 </div>
 </div>
@@ -15561,7 +15562,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">k_mean_score</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_cluster</span><span class="p">):</span>
@@ -15578,17 +15579,16 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Over a number of different cluster counts...</span>
-<span class="c1"># run k-means clustering on the data and...</span>
+<span class="c1"># run k-means clustering on the data</span>
 <span class="c1"># compute the average within-cluster distances.</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">ks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ks</span><span class="p">:</span>
-    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k_mean_score</span><span class="p">(</span><span class="n">azdias_pca</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>    
-    
+    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k_mean_score</span><span class="p">(</span><span class="n">azdias_pca</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -15598,7 +15598,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate the change in within-cluster distance across number of clusters.</span>
@@ -15612,10 +15612,45 @@ Name: 2, Length: 64, dtype: float64
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[51]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0,0.5,&#39;SSE&#39;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-fit the k-means model with the selected number of clusters and obtain</span>
@@ -15633,8 +15668,7 @@ Name: 2, Length: 64, dtype: float64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Discussion-3.1:-Apply-Clustering-to-General-Population">Discussion 3.1: Apply Clustering to General Population<a class="anchor-link" href="#Discussion-3.1:-Apply-Clustering-to-General-Population">&#182;</a></h3><p>(Double-click this cell and replace this text with your own text, reporting your findings and decisions regarding clustering. Into how many clusters have you decided to segment the population?)</p>
-<p>From the above plot, it looks like K=14 is the elbow. Therefore, I decided to use 14 clusters for this problem.</p>
+<h3 id="Discussion-3.1:-Apply-Clustering-to-General-Population">Discussion 3.1: Apply Clustering to General Population<a class="anchor-link" href="#Discussion-3.1:-Apply-Clustering-to-General-Population">&#182;</a></h3><p>From the above plot, it looks like K=14 is the elbow. Therefore, decided to use 14 clusters for this problem.</p>
 
 </div>
 </div>
@@ -15654,11 +15688,11 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the customer demographics data.</span>
-<span class="n">customers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Udacity_CUSTOMERS_Subset.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> 
+<span class="n">customers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Udacity_CUSTOMERS_Subset.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15668,7 +15702,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply preprocessing, feature transformation, and clustering from the general</span>
@@ -15685,7 +15719,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace NaN</span>
@@ -15701,7 +15735,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply scaler</span>
@@ -15718,7 +15752,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Predict using Kmeans model_12</span>
@@ -15750,7 +15784,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compare the proportion of data in each cluster for the customer data to the</span>
@@ -15768,10 +15802,45 @@ Name: 2, Length: 64, dtype: float64
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[58]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5,1,&#39;General Clusters&#39;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># What kinds of people are part of a cluster that is overrepresented in the</span>
@@ -15786,7 +15855,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">overrepresented_c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">centroid_10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">customers_clean</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -15799,7 +15868,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">overrepresented_c</span>
@@ -15809,10 +15878,91 @@ Name: 2, Length: 64, dtype: float64
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[67]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>ALTERSKATEGORIE_GROB        3.139818
+ANREDE_KZ                   1.451802
+FINANZ_MINIMALIST           3.564849
+FINANZ_SPARER               1.968532
+FINANZ_VORSORGER            3.964894
+FINANZ_ANLEGER              2.030486
+FINANZ_UNAUFFAELLIGER       2.225828
+FINANZ_HAUSBAUER            3.226302
+GREEN_AVANTGARDE            0.709565
+HEALTH_TYP                  2.133436
+RETOURTYP_BK_S              3.783670
+SEMIO_SOZ                   4.348168
+SEMIO_FAM                   3.991200
+SEMIO_REL                   3.348401
+SEMIO_MAT                   3.908852
+SEMIO_VERT                  4.688508
+SEMIO_LUST                  5.003138
+SEMIO_ERL                   4.762171
+SEMIO_KULT                  3.857054
+SEMIO_RAT                   3.477281
+SEMIO_KRIT                  4.436895
+SEMIO_DOM                   4.582996
+SEMIO_KAEM                  4.072926
+SEMIO_PFLICHT               3.404297
+SEMIO_TRADV                 3.396577
+SOHO_KZ                     0.010179
+VERS_TYP                    1.578480
+ANZ_PERSONEN                2.259270
+ANZ_TITEL                   1.010931
+HH_EINKOMMEN_SCORE          3.452416
+                            ...     
+KONSUMNAEHE                 2.578523
+MIN_GEBAEUDEJAHR         1992.553135
+OST_WEST_KZ                 0.203613
+KBA05_ANTG1                 1.549137
+KBA05_ANTG2                 1.273828
+KBA05_ANTG3                 0.318853
+KBA05_ANTG4                 0.404906
+KBA05_GBZ                   3.210468
+BALLRAUM                    3.571034
+EWDICHTE                    4.328700
+INNENSTADT                  4.241908
+GEBAEUDETYP_RASTER          3.323019
+KKK                         2.142295
+MOBI_REGIO                  2.988777
+ONLINE_AFFINITAET           2.410476
+REGIOTYP                    3.645406
+KBA13_ANZAHL_PKW          619.017834
+PLZ8_ANTG1                  2.117675
+PLZ8_ANTG2                  2.876115
+PLZ8_ANTG3                  1.730866
+PLZ8_ANTG4                  0.847404
+PLZ8_HHZ                    3.765887
+PLZ8_GBZ                    3.342884
+ARBEIT                      3.141037
+ORTSGR_KLS9                 5.910247
+RELAT_AB                    3.155659
+DECADE                      3.690473
+MOVEMENT                    0.290435
+WEALTH                      2.756280
+LIFE_STAGE                  3.301414
+Length: 64, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># What kinds of people are part of a cluster that is underrepresented in the</span>
@@ -15827,7 +15977,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">underrepresented_c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">centroid_13</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">customers_clean</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -15840,7 +15990,7 @@ Name: 2, Length: 64, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">underrepresented_c</span>
@@ -15850,19 +16000,104 @@ Name: 2, Length: 64, dtype: float64
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[70]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>ALTERSKATEGORIE_GROB        1.756023
+ANREDE_KZ                   0.950976
+FINANZ_MINIMALIST           1.865852
+FINANZ_SPARER               4.372665
+FINANZ_VORSORGER            2.087551
+FINANZ_ANLEGER              3.573142
+FINANZ_UNAUFFAELLIGER       3.766361
+FINANZ_HAUSBAUER            3.646084
+GREEN_AVANTGARDE            0.124355
+HEALTH_TYP                  2.346679
+RETOURTYP_BK_S              2.724578
+SEMIO_SOZ                   6.848243
+SEMIO_FAM                   6.781530
+SEMIO_REL                   6.324571
+SEMIO_MAT                   5.119730
+SEMIO_VERT                  6.096058
+SEMIO_LUST                  2.783789
+SEMIO_ERL                   2.064190
+SEMIO_KULT                  6.987113
+SEMIO_RAT                   4.143197
+SEMIO_KRIT                  2.743099
+SEMIO_DOM                   2.792975
+SEMIO_KAEM                  2.351054
+SEMIO_PFLICHT               5.728725
+SEMIO_TRADV                 4.930384
+SOHO_KZ                     0.008418
+VERS_TYP                    1.494707
+ANZ_PERSONEN                1.474624
+ANZ_TITEL                   0.000212
+HH_EINKOMMEN_SCORE          5.527313
+                            ...     
+KONSUMNAEHE                 2.099317
+MIN_GEBAEUDEJAHR         1992.433245
+OST_WEST_KZ                 0.312513
+KBA05_ANTG1                 0.372893
+KBA05_ANTG2                 1.330144
+KBA05_ANTG3                 1.237793
+KBA05_ANTG4                 0.578161
+KBA05_GBZ                   2.188699
+BALLRAUM                    3.201063
+EWDICHTE                    5.098298
+INNENSTADT                  3.382779
+GEBAEUDETYP_RASTER          3.392024
+KKK                         2.908845
+MOBI_REGIO                  1.761479
+ONLINE_AFFINITAET           3.066403
+REGIOTYP                    4.975824
+KBA13_ANZAHL_PKW          517.565932
+PLZ8_ANTG1                  1.438077
+PLZ8_ANTG2                  3.336264
+PLZ8_ANTG3                  2.439472
+PLZ8_ANTG4                  1.287601
+PLZ8_HHZ                    3.749451
+PLZ8_GBZ                    2.687190
+ARBEIT                      3.706684
+ORTSGR_KLS9                 6.915534
+RELAT_AB                    3.738666
+DECADE                      5.725150
+MOVEMENT                    0.875645
+WEALTH                      4.400191
+LIFE_STAGE                  1.981749
+Length: 64, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Discussion-3.3:-Compare-Customer-Data-to-Demographics-Data">Discussion 3.3: Compare Customer Data to Demographics Data<a class="anchor-link" href="#Discussion-3.3:-Compare-Customer-Data-to-Demographics-Data">&#182;</a></h3><p>From the anaylsis above, it can be seen that</p>
 <p>Cluster 4 is overrepresented in the customers data compared to general population data. Some characteristics of the group of population that are relative popular with the mail-order company:</p>
-<p>in areas where the share of 6-10 family homes is lower (PLZ8_ANTG3=1.73)
-in Prosperous or Comfortable households (WEALTH=2.75)
-in life stage of Families With School Age Children or Older Families &amp; Mature Couples (LIFE_STAGE=3.30)
-Cluster 13 is underrepresented in the customers data. Some characteristics of the segment of the population that are relatively unpopular with the company:</p>
-<p>in areas where the share of 6-10 family homes is higher (PLZ8_ANTG3=2.44)
-in Less Affluent or Poorer households (WEALTH=4.4)
-in life stage of Pre-Family Couples &amp; Singles or Young Couples With Children (LIFE_STAGE=1.98)</p>
+<ul>
+<li>in areas where the share of 6-10 family homes is lower (PLZ8_ANTG3=1.73)</li>
+<li>in Prosperous or Comfortable households (WEALTH=2.75)</li>
+<li>in life stage of Families With School Age Children or Older Families &amp; Mature Couples (LIFE_STAGE=3.30)</li>
+</ul>
+<p>Cluster 13 is underrepresented in the customers data. Some characteristics of the segment of the population that are relatively unpopular with the company:</p>
+<ul>
+<li>in areas where the share of 6-10 family homes is higher (PLZ8_ANTG3=2.44)</li>
+<li>in Less Affluent or Poorer households (WEALTH=4.4)</li>
+<li>in life stage of Pre-Family Couples &amp; Singles or Young Couples With Children (LIFE_STAGE=1.98)</li>
+</ul>
 
 </div>
 </div>
@@ -15875,19 +16110,6 @@ in life stage of Pre-Family Couples &amp; Singles or Young Couples With Children
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
